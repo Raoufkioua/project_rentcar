@@ -1,34 +1,54 @@
+
 <?php
-require './Connexion.php';
+
 session_start();
-$mysqli = Connexion::connect();
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "project_rent_car";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $email = $_POST['email'];
 
 
-$email = $mysqli->escape_string($_POST['email']);
-$result = $mysqli->query("select * from users where email = '$email'");
+    $stmt = $conn->prepare("SELECT * FROM users where email ='$email'");
+    $stmt->execute();
+    if ($stmt->rowCount() == 0) {
+        echo  "User Doesn't exist ! ";
+        $_SESSION['message'] = "User Doesn't exist ! ";
+    } else {
+        // set the resulting array to associative
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $v = $stmt->fetchObject();
 
-var_dump($result);
-if ($result->num_row == 0) {
-    //user not found
-    $_SESSION['message'] = "User Doesn't exist ! ";
-    
-} else {
+        /* var_dump($_POST['pass']);
+        var_dump($v->password);
+          var_dump($v->password == $_POST['pass']); True
+            var_dump(password_verify($_POST['pass'], $v->password)); False ??????????????????????*/
 
-    $user = $result->fetch_assoc();
-    // put this obejt to associate array 
-
-    
-    /*if (password_verify($_POST['password'], $user['password'])) {
+        if ($v->password == $_POST['pass']) {
 
 
-        $_SESSION['email'] = $user['email'];
-        $_SESSION['first_name'] = $user['first_name'];
-        $_SESSION['last_name'] = $user['last_name'];
-        $_SESSION['active'] = $user['active'];
-        // this how we know that hesigned in 
-        $_SESSION['logged_in'] = true;
-    }*/
-    else{
-    $_SESSION['message'] = " Wrong password ! ";
+            $_SESSION['email'] = $v->password;
+            $_SESSION['first_name'] = $v->first_name;
+            $_SESSION['last_name'] = $v->last_name;
+            $_SESSION['active'] = $v->active;
+            // this how we know that hesigned in 
+            $_SESSION['logged_in'] = true;
+            echo "Login Succeeded";
+        } else {
+            $_SESSION['message'] = " Wrong password ! ";
+            echo "Wrong Password !! ";
+        }
+    }
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
 }
-}
+$conn = null;
+echo "</table>";
+?>
+  
