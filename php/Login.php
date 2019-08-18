@@ -17,7 +17,8 @@ if ($result->num_row == 0) {
     $user = $result->fetch_assoc();
     // put this obejt to associate array 
 
-    if (password_verify($_POST['password'], $user['password'])) {
+    
+    /*if (password_verify($_POST['password'], $user['password'])) {
 
 
         $_SESSION['email'] = $user['email'];
@@ -26,7 +27,7 @@ if ($result->num_row == 0) {
         $_SESSION['active'] = $user['active'];
         // this how we know that hesigned in 
         $_SESSION['logged_in'] = true;
-    }
+    }*/
     else{
     $_SESSION['message'] = " Wrong password ! ";
 }
