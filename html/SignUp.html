@@ -14,53 +14,59 @@
 <head>
 
 
-    <!-- Main CSS-->
+    <nav class="navbar " style="background-color: #0b0b0b;">
+
+        <a href="../html/First_Page.html"><img src="../images/1123.JPG" alt="logo" style="max-width: 160px"></a>
+
+    </nav>
 
 
 </head>
 
-<body >
+<body>
 
-    <div class="page-wrapper " style="background-image: url(./../images/bg-06.jpg) ">
-        <div class="wrapper wrapper--w680" >
-            <div class="card card-4" style="background-color : #312040">
+    <div class="page-wrapper " style="background-image: url(./../images/AceHomeSlidePic1.gif) ;  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; height: 100%; ">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4" style="background-color : #87030a ; opacity: 0.8;">
                 <div class="card-body">
-                    <h1 class="title" style="color: #3575b2" >Registration Form</h1>
-                    <form method="POST">
+                    <h1 class="title" style="color: #0098e7">Registration Form</h1>
+                    <form action="../php/SignUp.php" method="POST">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label" style="color: #3575b2">first name</label>
-                                    <input class="input--style-4" type="text" name="first_name">
+                                    <label class="label" style="color: #0098e7">first name</label>
+                                    <input class="input--style-4" type="text" name="first_name"size="30" required placeholder="Mark">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label" style="color: #3575b2">last name</label>
-                                    <input class="input--style-4" type="text" name="last_name">
+                                    <label class="label" style="color: #0098e7">last name</label>
+                                    <input class="input--style-4" type="text" name="last_name" size="30" required placeholder="Smith">
                                 </div>
                             </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label" style="color: #3575b2">Birthday</label>
+                                    <label class="label" style="color: #0098e7">Birthday</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="date" name="birthday">
+                                        <input class="input--style-4 js-datepicker" type="date" name="birthday" size="30" required>
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label" style="color: #3575b2">Gender</label>
+                                    <label class="label" style="color: #0098e7">Gender</label>
                                     <div class="p-t-10">
-                                        <label class="radio-container m-r-45" style="color: #3575b2">Male
-                                            <input type="radio" checked="checked" name="gender">
+                                        <label class="radio-container m-r-45" style="color: #0098e7">Male
+                                            <input type="radio" value="male" checked="checked" name="gender">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <label class="radio-container" style="color: #3575b2">Female
-                                            <input type="radio" name="gender">
+                                        <label class="radio-container" style="color: #0098e7">Female
+                                            <input type="radio" value ="Female" name="gender">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -70,22 +76,22 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label" style="color: #3575b2">Email</label>
-                                    <input class="input--style-4" type="email" name="email">
+                                    <label class="label" style="color: #0098e7">Email</label>
+                                    <input class="input--style-4" type="email" name="email" size="30" required placeholder="---@---.--">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label"style="color: #3575b2">Phone Number </label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <label class="label"  style="color: #0098e7">Phone Number </label>
+                                    <input class="input--style-4" type="text" name="phone" size="30" required placeholder="********">
                                 </div>
                             </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label"style="color: #3575b2">CIN</label>
-                                    <input class="input--style-4" type="cin" name="cin">
+                                    <label class="label" style="color: #0098e7">CIN</label>
+                                    <input class="input--style-4" type="cin" name="cin" size="30" required placeholder="********">
                                 </div>
                             </div>
                         </div>
