@@ -9,9 +9,10 @@ $gender =       isset($_POST['gender']) ? $_POST['gender'] : NULL;
 $email =        isset($_POST['email']) ? $_POST['email'] : NULL;
 $phone =         isset($_POST['phone']) ? $_POST['phone'] : NULL;
 $cin =           isset($_POST['cin']) ? $_POST['cin'] : NULL;
+$id=uniqid();
 
  $conn = Connexion::connect();
-    $stmt = $conn->prepare("INSERT INTO users_bd VALUES ('$firstname','$lastname','$gender','$birthday','$email','$phone','$cin')  ");
+    $stmt = $conn->prepare("INSERT INTO users_bd VALUES ('$id','$firstname','$lastname','$gender','$birthday','$email','$phone','$cin')  ");
     $stmt->execute();
     if ($stmt->rowCount()==1) {
     echo "<html>
